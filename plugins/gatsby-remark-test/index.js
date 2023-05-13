@@ -1,8 +1,12 @@
+const visit = require('unist-util-visit');
+
 module.exports = async (
-    {markdownAST},
-    pluginOption,
+    {markdownAST}
 ) => {
-    console.log('plugin run');
-    console.log(pluginOption);
+    visit(markdownAST, 'link', (node) => {
+        node.type = 'html';
+        node.value = '<div>test</div>';
+        node.children = [];
+    });
     return markdownAST;
 };

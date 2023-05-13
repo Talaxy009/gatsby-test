@@ -7,6 +7,9 @@ module.exports = {
     description: `Kick off your next, great Gatsby project with MDX.`,
     author: `@pragmaticpat`,
   },
+  flags: {
+    DEV_SSR: true,
+  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -39,12 +42,7 @@ module.exports = {
               maxWidth: 690,
             },
           },
-          {
-            resolve: 'gatsby-remark-test',
-            options: {
-              ping: 'Hello',
-            },
-          }
+          'gatsby-remark-test',
         ],
       },
     },
